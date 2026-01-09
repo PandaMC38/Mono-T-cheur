@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mono-Tâcheur</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="app-container">
+        <!-- HEADER -->
+        <header>
+            <div class="logo">Mono<span class="highlight">Tâcheur</span></div>
+            <button id="reset-btn" class="icon-btn" title="Réinitialiser" style="display: none;">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M4 12C4 16.4183 7.58172 20 12 20C16.4183 20 20 16.4183 20 12C20 7.58172 16.4183 4 12 4C9.47569 4 7.21443 5.17066 5.75137 7"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                    <path d="M4 6V8H6" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                </svg>
+            </button>
+        </header>
+
+        <!-- INPUT VIEW -->
+        <section id="input-view" class="view active">
+            <div class="hero">
+                <h1>Stop à la paralysie.</h1>
+                <p>Déposez votre cerveau ici. Une chose à la fois.</p>
+            </div>
+
+            <div class="input-area glass-panel">
+                <textarea id="task-input"
+                    placeholder="Lister vos tâches ici...&#10;Faire la vaisselle&#10;Répondre au mail de Paul&#10;..."
+                    spellcheck="false"></textarea>
+                <div class="actions">
+                    <button id="start-btn" class="primary-btn">Démarrer le Focus</button>
+                    <button id="dice-mode-btn" class="secondary-btn" title="Mode Aléatoire">
+                        🎲 Jeu de dés
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- FOCUS VIEW -->
+        <section id="focus-view" class="view hidden">
+            <div class="progress-indicator">
+                <span id="tasks-remaining">0</span> tâches restantes
+            </div>
+
+            <div class="focus-card glass-panel" id="current-task-card">
+                <h2 id="current-task-text">Prêt ?</h2>
+            </div>
+
+            <div class="focus-controls">
+                <button id="skip-btn" class="control-btn skip">
+                    <span class="icon">↪️</span>
+                    <span class="label">Passer</span>
+                </button>
+                <button id="done-btn" class="control-btn done">
+                    <span class="icon">✅</span>
+                    <span class="label">Fait</span>
+                </button>
+            </div>
+        </section>
+
+        <!-- EMPTY STATE (All Done) -->
+        <section id="completion-view" class="view hidden">
+            <div class="celebration glass-panel">
+                <h1>🎉</h1>
+                <h2>Terminé !</h2>
+                <p>Vous avez tout déchiré.</p>
+                <button id="new-list-btn" class="primary-btn">Nouvelle Liste</button>
+            </div>
+        </section>
+
+    </div>
+
+    <script src="taskManager.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>
